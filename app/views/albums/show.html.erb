@@ -1,0 +1,33 @@
+<h2><%= @album.name %></h2>
+		<table class = "table">
+			<thead>
+				<th> Album Name </th>
+				<th> Description </th>
+				<th> Updated </th>
+				<th> Edit </th>
+				<th> Delete </th>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>
+					<%= @album.name %> 
+					</td>
+					<td>
+					<%= @album.description %>
+					</td>
+					<td>
+					Updated at <%= @album.updated_at.strftime("%d %b %Y, %T") %>
+					</td>
+					<td>
+					<%= link_to edit_album_path(id: @album), class: 'btn btn-primary btn-xs' do%>
+                	<i class = "glyphicon glyphicon-pencil"></i> 
+                	<%end%>
+					</td>
+
+					<td>
+					<%= link_to album_path(id: @album), 
+					method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do%>
+                	<i class = "glyphicon glyphicon-remove"></i> 
+                	<%end%>
+					</td>

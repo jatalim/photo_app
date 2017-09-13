@@ -1,0 +1,13 @@
+<%= form_for @photo do |f| %>
+  
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    add an image....
+    <%= f.file_field :image %>
+  </div>
+
+end
