@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170914054025) do
     t.string "image"
     t.string "title"
     t.text "description"
+    t.integer "album_id"
+    t.index ["album_id"], name: "index_photos_on_album_id"
   end
 
   create_table "users", force: :cascade do |t|
