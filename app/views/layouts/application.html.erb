@@ -36,6 +36,12 @@
     <div class = "container">
   		<p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
+
+    <%-flash.each do |key,value| %>
+    <% key %> 
+    <%= value %>
+    <%end%>
+
     	<%= yield %>
     </div>
   </body>

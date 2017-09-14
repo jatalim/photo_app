@@ -1,5 +1,5 @@
 <h1>Edit your Album</h1>
-<%= form_for @album, url: album_path, method: :patch do |f| %>
+<%= form_for @album, url: album_path(id: @album.id), method: :patch do |f| %>
  	<div class = "row">
  	<%= f.label :name %>
  	</div>

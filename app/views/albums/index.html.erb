@@ -1,7 +1,9 @@
+<h1>Photo Album Index</h1>
 <table class = "table">
 	<thead>
 	<th> Album Name </th>
 	<th> Album Description </th>
+	<th> User </th>
 	<th> Edit </th>
 	<th> Delete </th>
 	</thead>
@@ -16,7 +18,11 @@
 				<td>
 				Updated at <%= album.updated_at.strftime("%d %b %Y, %T") %>
 				</td>
-	
+				
+				<td>
+				<%= @user.try(:email) %>
+				</td>
+				
 				<td> 
                 <%= link_to edit_album_path(album), class: 'btn btn-primary btn-xs' do%>
                 <i class = "glyphicon glyphicon-pencil"></i> 
