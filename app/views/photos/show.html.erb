@@ -1,3 +1,20 @@
 <%= image_tag(@photo.image_url.to_s) %>
 
+<%= form_for @comment, url: album_photo_comments_path(albums_id: album.id, photos_id: photo.id), method: :post do |f| %>
 
+<p><%= f.text_field :name %></p>
+
+<p><%=	f.text_area :description %></p>
+
+<%= f.submit 'Submit' %>
+
+<% end %>
+
+<% @photo.comments.order(created_at: :desc).each do |comment| %>
+
+<p> <%= comment.name %></p>
+<p> <%= comment.description %></p>
+<%= link_to 'Destroy', , method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_todo_list_path(todo_list) %>
+
+<% end %>
