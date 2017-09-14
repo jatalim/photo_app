@@ -1,5 +1,7 @@
 class AlbumsController < ApplicationController
 
+	before_action :authenticate_user!
+	
 	def index 
 	@album = Album.all
 	end 
