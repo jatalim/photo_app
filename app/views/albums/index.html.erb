@@ -9,7 +9,7 @@
 	</thead>
 
 	<tbody>
-		<% @album.each do|album| %> 
+		<% Album.all.each do|album| %> 
 			<tr>
 				<td>
 				<%= link_to album.name, album_path(id: album) %> 
@@ -20,7 +20,7 @@
 				</td>
 				
 				<td>
-				<%= @user.try(:email) %>
+				<%= album.name %>
 				</td>
 				
 				<td> 
@@ -41,7 +41,7 @@
 </table>
 
 	<div>
-	<%= button_to "Create New Album", new_album_path, :method => "get" %>
+	<%= button_to "Create New Album", new_album_path, :method => "get", class: 'btn btn-danger' %>
 	</div>
 
 </div>
