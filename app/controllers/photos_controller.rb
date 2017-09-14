@@ -12,10 +12,22 @@ class PhotosController < ApplicationController
 	end 
 
 	def new
-	@photo = Photo.new 
+	@photo = Photo.new
+	@album = Album.find(params[:album_id])
+	# @album.id = params[:album_id]
+	# redirect_to new_album_photo_path(album_id: @album.id)
 	end
 
 	def create
+	@album = Album.find(params[:album_id])
+	@photo = @album.photos.build(photo_params)
+		
+		if @photo.save
+		redirect_to album_path(id: @album.id)
+			else
+		render :new
+		end
+
 	end
 
 	def edit

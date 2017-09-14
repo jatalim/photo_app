@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913101700) do
+ActiveRecord::Schema.define(version: 20170914032518) do
 
   create_table "albums", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170913101700) do
     t.string "image"
     t.string "title"
     t.text "description"
+    t.integer "album_id"
+    t.index ["album_id"], name: "index_photos_on_album_id"
   end
 
   create_table "users", force: :cascade do |t|
