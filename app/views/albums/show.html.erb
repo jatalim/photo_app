@@ -42,38 +42,3 @@
 		</table>
 </div>
 					
-
-<div class = "row">
-<h2>UPLOAD A PHOTO</h2>
-
-<%= form_for @photo, url: album_photos_path(album_id: @album.id), method: :post do |f| %>
-  
-  <div class="field">
-    <%= f.label :title %>
-    <div class = "row">
-    <%= f.text_field :title %>
-  </div>
-  </div>
-
-  
-   <div class="field">
-    <%= f.label :description %>
-    <div class = "row">
-    <%= f.text_area :description %>
-  </div>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :image %>
-      <div class = "row">
-    <%= f.file_field :image %>
-  </div>
-  </div>
-
-  <div class = "row">
-  <%= f.submit "Create" %>
-  </div>
-  <%end%>
- </div>
- </div>
