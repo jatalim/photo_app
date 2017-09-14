@@ -12,11 +12,6 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
-    <!-- CSS Files -->
-    <link href="../assets/stylesheets/bootstrap.min.css" rel="stylesheet" />
-    <link href="../assets/stylesheets/material-kit.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="style.scss"/>
-
 
   </head>
 
@@ -40,8 +35,7 @@
                                         <li>
                                             <a href="#pablo"><i class="material-icons">email</i></a>
                                         </li>
-                                        <li><%= link_to 'Login', new_user_session_path %></li>
-                                        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+                                        <% if user_signed_in? %>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                 <i class="material-icons">face</i>
@@ -55,26 +49,24 @@
                                                 <li><%= link_to'Logout', destroy_user_session_path, method: :delete %></li>
                                             </ul>
                                         </li>
+                                        <% else %>
+                                            <li><%= link_to 'Login', new_user_session_path %></li>
+                                            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+                                        <% end %>
                                     </ul>
                                 </div>
                             </div>
                         </nav>
 
 
-
-    <!--<div >
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%-flash.each do |key,value| %>
+     <!--   <%-flash.each do |key,value| %>
         <% key %> 
         <%= value %>
-        <%end%>
-        
-    </div>-->
+        <%end%> -->
+
         
     <%= yield %>
   
-
   </body>
 
 
