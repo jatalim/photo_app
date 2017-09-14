@@ -92,9 +92,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><%= link_to 'Login', new_user_session_path, :class => 'navbar-brand' %></li>
                     <li><%= link_to'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-brand' %></li>
-                    <% if user_signed_in? %>
-                    <li><p class="navbar-text"> Hello, <%= current_user.name %> ! </p></li> 
-                    <% end %>
+
                 </ul>
             </div>
 
@@ -102,7 +100,7 @@
     </nav>
     </section> -->
 
-    <!--<div >
+    <div >
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
         <%-flash.each do |key,value| %>
@@ -110,7 +108,7 @@
         <%= value %>
         <%end%>
         
-    </div>-->
+    </div>
         
     <%= yield %>
   
