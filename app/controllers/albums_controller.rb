@@ -1,6 +1,15 @@
 class AlbumsController < ApplicationController
 
 	before_action :authenticate_user!
+	before_action :check_auth
+
+	def check_auth
+		if user_signed_in?
+			render :index
+	    else
+	        redirect_to root_path
+	   	end
+	end
 	
 	def index 
 	@album = Album.all
