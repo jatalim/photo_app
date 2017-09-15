@@ -1,20 +1,30 @@
-<%= image_tag(@photo.image_url.to_s) %>
 
-<%= form_for @comment, url: album_photo_comments_path(albums_id: album.id, photos_id: photo.id), method: :post do |f| %>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-<p><%= f.text_field :name %></p>
+<div class="container">
+		
+	<%= form_for @comment, url: album_photo_comments_path(album_id: @album.id, photo_id: @photo.id), method: :post do |f| %>
 
-<p><%=	f.text_area :description %></p>
+		<p><%=	f.text_area :comments %></p>
+		<%= f.submit 'Submit' %>
 
-<%= f.submit 'Submit' %>
+	<% end %>
 
-<% end %>
+	<% @photo.comments.order(created_at: :desc).each do |comment| %>
 
-<% @photo.comments.order(created_at: :desc).each do |comment| %>
+		<div>
+		<p> <%= comment.comments %> by 
+			<%= current_user.name %></p>
+		<%= link_to 'Delete', album_photo_comment_path(album_id: @album.id, photo_id: @photo.id, id: comment.id),
+				method: :delete,
+				data: { confirm: 'Delete yes?' } %>
 
-<p> <%= comment.name %></p>
-<p> <%= comment.description %></p>
-<%= link_to 'Destroy', , method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_todo_list_path(todo_list) %>
+		</div>
+			
+	<% end %>
 
-<% end %>
+</div>
