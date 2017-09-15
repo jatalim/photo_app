@@ -49,7 +49,6 @@ class PhotosController < ApplicationController
 	end
 
 	def destroy
-		byebug
 		@photo = Photo.find(params[:id])
 		@album = Album.find(params[:album_id])
 		@photo.destroy
