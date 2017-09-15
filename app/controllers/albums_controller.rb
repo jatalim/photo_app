@@ -10,9 +10,11 @@ class AlbumsController < ApplicationController
 
 	def show
 	# @user = User.find(params[:id])
-	@photo = Photo.new
+	# @photo = Photo.new
 	@user = current_user
 	@album = Album.find(params[:id])
+	@photo = @album.photos
+
 	end 
 
 	def new

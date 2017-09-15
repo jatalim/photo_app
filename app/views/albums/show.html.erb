@@ -41,6 +41,35 @@
 		</table>
 </div>
 
+
 <%= image_tag(@album.image.url, alt: 'Image') if @photo.image? %>
 
 <%= link_to 'new photo', new_album_photo_path(album_id: @album.id) %>
+
+<table class = "table">
+		<% @photo.each do |photo| %>
+	<tr>
+		<td> <%= photo.title %></td>
+	</tr>
+	<tr>
+		<td>
+			<%= image_tag photo.image.thumb.url if photo.image?%>
+		</td>
+	</tr>
+	<tr>
+		<td> <%= photo.description %></td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'new photo', new_album_photo_path(album_id: @album.id) %>
+		</td>
+		<td>
+			<%= link_to 'edit photo', edit_album_photo_path(album_id: @album.id, id: photo.id) %> 
+		</td>
+		<td> 
+			<%= link_to 'delete photo', album_photo_path(album_id: @album.id, id: photo.id), method: :delete %> 		
+		</td>
+		<% end %>
+	</tr>
+</table>
+
