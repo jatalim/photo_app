@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170914054025) do
     t.integer "photo_id"
     t.integer "user_id"
     t.string "comments"
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["photo_id"], name: "index_comments_on_photo_id"
