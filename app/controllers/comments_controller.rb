@@ -2,21 +2,33 @@ class CommentsController < ApplicationController
 
 
 	def edit
+
 	end
 
 	def create
-		photo = Photo.find(params[photo_id])
-		album.photo.comments.create(photo_params)
-		redirect_to albums_photos_path(albums_id: album.id, photos_id: photo.id)
+		pho = photo.comments.build(photo_params)
+		pho.user = current_user
+		pho.save
+		redirect_to album_photo_path(album_id: album.id, id: photo.id)
 	end
 
 	def destroy
+		comment = Comment.find(params[:id])
+		comment.destroy
+		redirect_to album_photo_path(album_id: album.id, id: photo.id)
 	end
 	
 	private
 
 	def photo_params
-		params.require(:comment).permit(:name, :photo)
+		params.require(:comment).permit(:comments)	
 	end
 
+	def photo 
+		Photo.find(params[:photo_id])
+	end
+	
+	def album	
+		Album.find(params[:album_id])
+	end
 end
