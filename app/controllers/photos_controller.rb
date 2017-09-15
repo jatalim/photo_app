@@ -8,7 +8,9 @@ class PhotosController < ApplicationController
 	end 
 
 	def show
-	@photo = Photo.new 
+		@album = Album.find(params[:album_id])
+		@photo = Photo.find(params[:id])
+		@comment = @photo.comments.build
 	end 
 
 	def new
