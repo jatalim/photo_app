@@ -41,8 +41,10 @@
 		</table>
 </div>
 
+<%= link_to 'new photo', new_album_photo_path(album_id: @album.id) %>
+
 <table>
-		<% @photo.each do |photo| %>
+	<% @photo.each do |photo| %>
 	<tr>
 		<td> <%= photo.title %></td>
 	</tr>
@@ -55,9 +57,6 @@
 		<td> <%= photo.description %></td>
 	</tr>
 	<tr>
-		<td>
-			<%= link_to 'new photo', new_album_photo_path(album_id: @album.id) %>
-		</td>
 		<td>
 			<%= link_to 'edit photo', edit_album_photo_path(album_id: @album.id, id: photo.id) %> 
 		</td>

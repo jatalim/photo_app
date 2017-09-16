@@ -14,7 +14,8 @@
 
 <p> <%= comment.name %></p>
 <p> <%= comment.description %></p>
-<%= link_to 'Destroy', , method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Destroy', album_photo_comment_path(album_id: @album.id, photo_id: @photo.id, id: comment.id),
+                method: :delete,
+                data: { confirm: 'Delete yes?' } %>
 <%= link_to 'Edit', edit_todo_list_path(todo_list) %>
-
 <% end %>
