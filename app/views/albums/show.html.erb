@@ -72,6 +72,9 @@
 			<td> 
 				<%= link_to 'delete photo', album_photo_path(album_id: @album.id, id: photo.id), method: :delete, class: 'btn btn-danger btn-xs' %> 		
 			</td>
+			<td>
+				<%= link_to 'Comments', album_photo_path(album_id: @album.id, id: photo.id), class: 'btn btn-warning btn-xs'%>
+			</td>
 			<% end %>
 		</tr>
 	</table>
