@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   	devise_for :users, controllers: {registrations: "registrations"}
 
   	resources :albums do 
-  	resources :photos
+  		resources :photos do
+  			resources :comments
+  		end
 	end
+	
 end
