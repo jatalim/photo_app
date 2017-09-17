@@ -1,31 +1,62 @@
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-<div class="container">
-		
-	<%= form_for @comment, url: album_photo_comments_path(album_id: @album.id, photo_id: @photo.id), method: :post do |f| %>
-
-		<p><%=	f.text_area :comments %></p>
-		<%= f.submit 'Submit' %>
-
-	<% end %>
-
-	<% @photo.comments.order(created_at: :desc).each do |comment| %>
-
-		<div>
-		<p> <%= comment.comments %> by 
-			<%= current_user.name %></p>
-		<%= link_to 'Delete', album_photo_comment_path(album_id: @album.id, photo_id: @photo.id, id: comment.id),
-				method: :delete,
-				data: { confirm: 'Delete yes?' } %>
-
-		</div>
-			
-	<% end %>
+<div class="jumbotron text-center">
 
 </div>
+
+<div class="container">
+	<div class="col-sm-3">		
+	<%= form_for @comment, url: album_photo_comments_path(album_id: @album.id, photo_id: @photo.id), method: :post do |f| %>
+		
+		<div class="form-group label-floating">
+			<label class="control-label">Comments</label>
+			<%=	f.text_field :comments, class: 'form-control' %>
+			<% if user_signed_in? %>
+			<%= current_user.name = @comment.username %>
+			<% else%>
+			<%=	f.text_area :username, placeholder: "Type your name" %>
+			<% end %>
+			<%= f.submit 'Submit', class: 'btn btn-primary btn-sm' %>
+		
+		</div>
+	<% end %>
+	</div>
+
+
+	<div>
+	<% @photo.comments.order(created_at: :desc).each do |comment| %>
+
+	</div>
+			
+</div>
+
+
+<div class="row">
+        <div class="col-sm-8">
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a href="#"><b><%= comment.user.name %></b></a>
+                            made a post.
+                        </div>
+                        <h6 class="text-muted time">1 minute ago</h6>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                    <p><%= comment.comments %></p>
+                    <div class="stats">
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-up icon"></i>2
+                        </a><%= link_to 'Delete', album_photo_comment_path(album_id: @album.id, photo_id: @photo.id, id: comment.id),
+							method: :delete,
+							data: { confirm: 'Delete yes?' }, class:"btn btn-default stat-item, fa fa-thumbs-down icon" %>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<% end %>
 

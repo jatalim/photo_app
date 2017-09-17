@@ -1,3 +1,6 @@
+<div class="jumbotron text-center">
+
+</div>
 <div class = "container">
 <div class = "row">
 <h2><%= @album.name %></h2>
@@ -48,8 +51,10 @@
 	<span class = "row"><%= link_to 'new photo', new_album_photo_path(album_id: @album.id) , class: 'btn btn-success btn-xs'%></span>
 </div>
 
+
 <div class = "col-md-12">
 	<table>
+
 		<% @photo.each do |photo| %>
 		<tr>
 			<td> <strong>Title </strong></td>

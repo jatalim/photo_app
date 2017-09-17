@@ -1,47 +1,55 @@
-<h1>Photo Album Index</h1>
-<table class = "table">
-	<thead>
-	<th> Album Name </th>
-	<th> Album Description </th>
-	<th> User </th>
-	<th> Edit </th>
-	<th> Delete </th>
-	</thead>
+<div class="jumbotron text-center">
 
-	<tbody>
-		<% Album.all.each do|album| %> 
-			<tr>
-				<td>
-				<%= link_to album.name, album_path(id: album) %> 
-				</td>
+</div>
 
-				<td>
-				Updated at <%= album.updated_at.strftime("%d %b %Y, %T") %>
-				</td>
-				
-				<td>
-				<%= album.name %>
-				</td>
-				
-				<td> 
-                <%= link_to edit_album_path(album), class: 'btn btn-primary btn-xs' do%>
-                <i class = "glyphicon glyphicon-pencil"></i> 
-                <%end%>
-				</td>
+<div class="container">
 	
-				<td>
-				<%= link_to album_path(album), 
-				method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do%>
-                <i class = "glyphicon glyphicon-remove"></i> 
-                <%end%>
-				</td>
-			</tr>
-		<% end %> 
-	</tbody>
-</table>
+	<h1><%= current_user.name %> Album </h1>
+	<table class = "table">
+		<thead>
+		<th> Album Name </th>
+		<th> Album Description </th>
+		<th> User </th>
+		<th> Edit </th>
+		<th> Delete </th>
+		</thead>
 
-	<div>
-	<%= button_to "Create New Album", new_album_path, :method => "get", class: 'btn btn-danger' %>
+		<tbody>
+			<% Album.all.each do|album| %> 
+				<tr>
+					<td>
+					<%= link_to album.name, album_path(id: album) %> 
+					</td>
+
+					<td>
+					Updated at <%= album.updated_at.strftime("%d %b %Y, %T") %>
+					</td>
+					
+					<td>
+					<%= album.name %>
+					</td>
+					
+					<td> 
+	                <%= link_to edit_album_path(album), class: 'btn btn-primary btn-xs' do%>
+	                <i class = "glyphicon glyphicon-pencil"></i> 
+	                <%end%>
+					</td>
+		
+					<td>
+					<%= link_to album_path(album), 
+					method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do%>
+	                <i class = "glyphicon glyphicon-remove"></i> 
+	                <%end%>
+					</td>
+				</tr>
+			<% end %> 
+		</tbody>
+	</table>
+
+		<div>
+		<%= button_to "Create New Album", new_album_path, :method => "get", class: 'btn btn-danger' %>
+		</div>
+
 	</div>
 
 </div>
