@@ -1,3 +1,6 @@
+<div class="jumbotron text-center">
+
+</div>
 <div class = "container">
 <div class = "row">
 <h2><%= @album.name %></h2>
@@ -42,11 +45,7 @@
 </div>
 
 
-<%= image_tag(@album.image.url, alt: 'Image') if @photo.image? %>
-
-<%= link_to 'new photo', new_album_photo_path(album_id: @album.id) %>
-
-<table class = "table">
+<table>
 		<% @photo.each do |photo| %>
 	<tr>
 		<td> <%= photo.title %></td>
