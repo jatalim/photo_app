@@ -4,15 +4,19 @@
 
 <div class="container">
 
-	<h1>Edit</h1>
+	<h1>Edit for <%= link_to "#{current_user.name}", user_path(@user) %></h1>
 
 	<%= form_for(@user, html: { multipart: true }) do |f| %>
 
 		<%= f.label :name %>
 		<%= f.text_field :name %>
 
+		<%= f.label :status %>
+		<%= f.text_field :status %>
+
 		<%= f.file_field :image %>		
 
 		<%= f.submit "Save Changes" %>
 	<% end %>
+
 </div>
