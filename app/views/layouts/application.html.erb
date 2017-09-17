@@ -26,12 +26,12 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="#">HaVinJac</a>
+                                    <a><%= link_to "HaVinJac", root_path, class: 'navbar-brand' %></a>
                                 </div>
 
                                 <div class="collapse navbar-collapse" id="example-navbar-icons">
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><%= link_to 'Main Index', albums_path %></li>
+                                        <li><%= link_to 'Home', albums_path %></li>
                                         <li>
                                             <a href="#pablo"><i class="material-icons">email</i></a>
                                         </li>
@@ -57,12 +57,6 @@
                                 </div>
                             </div>
                         </nav>
-
-
-     <!--   <%-flash.each do |key,value| %>
-        <% key %> 
-        <%= value %>
-        <%end%> -->
 
         
     <%= yield %>

@@ -1,22 +1,7 @@
 class AlbumsController < ApplicationController
 
-<<<<<<< HEAD
 	before_action :authenticate_user! ,except:[:index]
 
-
-=======
-	before_action :authenticate_user!
-	before_action :check_auth
-
-	def check_auth
-		if user_signed_in?
-			render :index
-	    else
-	        redirect_to root_path
-	   	end
-	end
-	
->>>>>>> 3cd94a865c863795e44bfb596d7419c7252b0869
 	def index 
 	@album = Album.all
 	@user = User.all
@@ -25,9 +10,11 @@ class AlbumsController < ApplicationController
 
 	def show
 	# @user = User.find(params[:id])
-	@photo = Photo.new 
+	# @photo = Photo.new 
 	@user = current_user
 	@album = Album.find(params[:id])
+	@photo = @album.photos
+
 	end 
 
 	def new
@@ -63,8 +50,7 @@ class AlbumsController < ApplicationController
 	end
 
 	def destroy
-	@album = Album.find(params[:id])
-	@album.destroy
+	C 
 	redirect_to albums_path
 	end
 

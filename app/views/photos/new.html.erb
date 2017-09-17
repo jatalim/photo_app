@@ -1,3 +1,10 @@
+
+<div class="jumbotron text-center">
+
+</div>
+
+<div class="container">
+
 <h1>UPLOAD A PHOTO</h1>
 
 <%= form_for @photo, url: album_photos_path(album_id: @album.id), method: :post do |f| %>
@@ -11,6 +18,7 @@
 
   
    <div class="field">
+   
     <%= f.label :description %>
     <div class = "row">
     <%= f.text_area :description %>
@@ -19,7 +27,6 @@
 
 
   <div class="field">
-    <%= f.label :image %>
       <div class = "row">
     <%= f.file_field :image %>
   </div>
@@ -28,4 +35,5 @@
   <div class = "row">
   <%= f.submit "Create" %>
   </div>
-  <%end%>
+</div>
+<%end%>

@@ -1,3 +1,6 @@
+<div class="jumbotron text-center">
+
+</div>
 <div class = "container">
 <div class = "row">
 <h2><%= @album.name %></h2>
@@ -38,7 +41,43 @@
                 	<%end%>
 					</td>
 					</tr>
-			</tbody>
 		</table>
 </div>
-					
+
+<div class = "col-md-2">
+	<h2> Photos </h2>
+</div>
+<div class = "col-md-4">
+	<span class = "row"><%= link_to 'new photo', new_album_photo_path(album_id: @album.id) , class: 'btn btn-success btn-xs'%></span>
+</div>
+
+
+<div class = "col-md-12">
+	<table>
+
+		<% @photo.each do |photo| %>
+		<tr>
+			<td> <strong>Title </strong></td>
+			<td> <%= photo.title %></td>
+		</tr>
+		<tr>
+			<td> <strong>Photo </strong></td>
+			<td>
+				<%= link_to(image_tag(photo.image.thumb.url, alt: 'Image'), photo.image.url, target: '_blank') if photo.image?%>
+			</td>
+		</tr>
+		<tr>
+			<td> <strong>Description </strong></td>
+			<td><%= photo.description %></td>
+		</tr>
+		<tr>
+			<td>
+				<%= link_to 'edit photo', edit_album_photo_path(album_id: @album.id, id: photo.id), class: 'btn btn-primary btn-xs' %>
+			</td>
+			<td> 
+				<%= link_to 'delete photo', album_photo_path(album_id: @album.id, id: photo.id), method: :delete, class: 'btn btn-danger btn-xs' %> 		
+			</td>
+			<% end %>
+		</tr>
+	</table>
+</div>
