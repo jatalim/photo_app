@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 	private
 
 	def photo_params
-		params.require(:comment).permit(:comments)	
+		params.require(:comment).permit(:comments, :username)	
 	end
 
 	def photo 

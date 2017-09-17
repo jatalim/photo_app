@@ -1,3 +1,8 @@
+<div class="jumbotron text-center">
+
+</div>
+
+<div class="container">
 <h1>EDIT A PHOTO</h1>
 
 <%= form_for @photo, url: album_photo_path(album_id: @album.id, id: @photo.id), method: :put do |f| %>
@@ -35,4 +40,5 @@
   <div class = "row">
   <%= f.submit "Update" %>
   </div>
+</div>
   <%end%>
