@@ -43,7 +43,7 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-right">
                                                 <li class="dropdown-header"><%= avatar_for(current_user, size: 30) %> 
-                                                <%= link_to "#{current_user.name}", user_path(@user) %></li>
+                                                <%= link_to "#{current_user.name}", user_path(current_user.id) %></li>
                                                 <li class="divider"></li>
                                                 <li><%= link_to 'About Us', new_user_registration_path %></li>
                                                 <li class="divider"></li>

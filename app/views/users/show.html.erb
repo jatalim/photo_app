@@ -4,7 +4,7 @@
 
 <div class="container">
 
-	<h1><%= link_to "#{current_user.name}", user_path(@user) %></h1>
+	<h1>Profile for <%= link_to "#{current_user.name}", user_path(@user) %></h1>
 
 	<!-- image_tag @user.image.url(:thumb) if @user.image? -->
 
