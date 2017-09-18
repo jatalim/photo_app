@@ -58,7 +58,7 @@
 		<% @photo.each do |photo| %>
 		<tr>
 			<td> <strong>Title </strong></td>
-			<td> <%= photo.title %></td>
+			<td> <%= link_to "#{photo.title}", album_photo_path(album_id: @album.id, id: photo.id) %></td>
 		</tr>
 		<tr>
 			<td> <strong>Photo </strong></td>

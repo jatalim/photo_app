@@ -3,6 +3,10 @@
 
 </div>
 
+<p>
+<%= link_to(image_tag(@photo.image.url, alt: 'Image', size: 500), @photo.image.url, target: '_blank') if @photo.image?%>
+</p>
+
 <div class="container">
 	<div class="col-sm-3">		
 	<%= form_for @comment, url: album_photo_comments_path(album_id: @album.id, photo_id: @photo.id), method: :post do |f| %>
@@ -35,7 +39,8 @@
             <div class="panel panel-white post panel-shadow">
                 <div class="post-heading">
                     <div class="pull-left image">
-                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+
+                        <%= avatar_for(comment.user, size: 50, class: "img-circle avatar") %>
                     </div>
                     <div class="pull-left meta">
                         <div class="title h5">
