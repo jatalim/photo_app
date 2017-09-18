@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
-	before_action :authenticate_user!
-	
+	before_action :authenticate_user! ,except:[:index]
+
 	def index 
 	@album = Album.all
 	@user = User.all
@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
 
 	def show
 	# @user = User.find(params[:id])
-	# @photo = Photo.new
+	# @photo = Photo.new 
 	@user = current_user
 	@album = Album.find(params[:id])
 	@photo = @album.photos
@@ -19,6 +19,7 @@ class AlbumsController < ApplicationController
 
 	def new
 	@album = Album.new 
+	@photo = Photo.new
 	end
 
 	def create
@@ -33,6 +34,7 @@ class AlbumsController < ApplicationController
 	end
 
 	def edit
+	@photo = Photo.new
 	@album = Album.find(params[:id])
 	end
 

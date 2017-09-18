@@ -3,30 +3,42 @@
 </div>
 
 <div class="container">
-<h1>Edit your Album</h1>
-<%= form_for @album, url: album_path(id: @album.id), method: :patch do |f| %>
- 	<div class = "row">
- 	<%= f.label :name %>
- 	</div>
 
- 	<div class = "row">
-  	<%= f.text_field :name %>
-	</div>
 
- 	<div class = "row">
- 	<%= f.label :description %>
- 	</div>
+<h2>UPLOAD A PHOTO</h2>
 
- 	<div class = "row">
-  	<%= f.text_area :description %>
-	</div>
-	<p>
-	</p>
+<%= form_for @photo, url: album_photos_path(album_id: @album.id), method: :post do |f| %>
+  
+  <div class="field">
+    <%= f.label :title %>
+    <div class = "row">
+    <%= f.text_field :title %>
+  </div>
+  </div>
 
-	<div class = "row">
-  	<%= f.submit "Update" %>
-	</div>
+  
+   <div class="field">
+    <%= f.label :description %>
+    <div class = "row">
+    <%= f.text_area :description %>
+  </div>
+  </div>
 
-<% end %>
 
-</div>
+  <div class="field">
+    <%= f.label :image %>
+      <div class = "row">
+    <%= f.file_field :image %>
+  </div>
+  </div>
+
+  <div class = "row">
+  <%= f.submit "Create" %>
+  </div>
+  
+  <%end%>
+ 
+ </div>
+
+
+
